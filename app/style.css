@@ -30,13 +30,58 @@ img {
   font-family: 'Montserrat', sans-serif;
 }
 
+.navbar-right {
+  margin-right: 20px;
+}
+
+a {
+  text-decoration:none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.navbar {
+  height: 70px;
+  align-items: center;
+}
+
+.nav-item:active, a:focus {
+  color: #f4b942;
+  text-decoration: none;
+}
+
+.dropdown-menu {
+  text-align: right;
+  padding:10px;
+  width:auto;
+}
+
+.dropdown-item {
+  margin:10px;
+}
+
+.dropdown-item:hover > a {
+  text-decoration: none;
+}
+
 .centered {
   align-content: center;
 }
 
 .pie {
   margin: 20px;
-  align-content: center;
+  height:200px;
+  width:200px;
+}
+
+#quizChart1, #unitChart1 {
+  height:200px;
+  width:200px;
+  margin-left: -16px;
+  margin-top: -16px;
+  margin-bottom:36px;
 }
 
 .pie text {
@@ -57,18 +102,13 @@ img {
   margin-right: 5px;
 }
 
-.navbar-nav {
+.navbar-nav, .navbar-brand {
   padding:10px;
-  margin-top:5px;
+  margin-top:15px;
 }
 
 .header > h3 {
   margin: 0px;
-}
-
-#chart {
-  height: 200px;
-  width: 200px;
 }
 
 /* Slideshow container */
@@ -79,7 +119,6 @@ img {
 
 .quizSlide {
     display: none;
-    margin-bottom: 30px;
 }
 
 /* Next & previous buttons */
@@ -119,6 +158,11 @@ img {
 
 .active, .dot:hover {
   background-color: #717171;
+}
+
+.dot-marker {
+  margin-top: 20px;
+  text-align: center;
 }
 
 /* Fading animation */
