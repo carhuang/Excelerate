@@ -30,6 +30,42 @@ img {
   font-family: 'Montserrat', sans-serif;
 }
 
+.navbar-right {
+  margin-right: 20px;
+}
+
+a {
+  text-decoration:none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.navbar {
+  height: 70px;
+  align-items: center;
+}
+
+.nav-item:active, a:focus {
+  color: #f4b942;
+  text-decoration: none;
+}
+
+.dropdown-menu {
+  text-align: right;
+  padding:10px;
+  width:auto;
+}
+
+.dropdown-item {
+  margin:10px;
+}
+
+.dropdown-item:hover > a {
+  text-decoration: none;
+}
+
 .centered {
   align-content: center;
 }
@@ -66,9 +102,9 @@ img {
   margin-right: 5px;
 }
 
-.navbar-nav {
+.navbar-nav, .navbar-brand {
   padding:10px;
-  margin-top:5px;
+  margin-top:15px;
 }
 
 .header > h3 {
