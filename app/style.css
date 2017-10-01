@@ -28,7 +28,29 @@ img {
   align-content: center;
 }
 
+<<<<<<< HEAD
 /*#navbar {
+=======
+<<<<<<< HEAD
+.pie {
+    margin: 20px;
+  }
+  
+  .pie text {
+    font-family: "Verdana";
+    fill: #888;
+  }
+  
+  .pie .name-text{
+    font-size: 1em;
+  }
+  
+  .pie .value-text{
+    font-size: 3em;
+  }
+=======
+#navbar {
+>>>>>>> refs/remotes/origin/master
   padding:10px;
 }*/
 
@@ -45,3 +67,4 @@ img {
 .navbar-right {
   
 }
+>>>>>>> b153762c909f7fcd355e447127cb7357f48bbe5a
