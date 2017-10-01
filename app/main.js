@@ -180,9 +180,9 @@ $(document).ready(function () {
         function renderDonutChart(data, id) {
             var text = "";
 
-            var width = 260;
-            var height = 260;
-            var thickness = 40;
+            var width = 200;
+            var height = 200;
+            var thickness = 50;
             var duration = 750;
 
             var radius = Math.min(width, height) / 2;
