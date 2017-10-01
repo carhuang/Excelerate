@@ -36,7 +36,13 @@ img {
 
 .pie {
   margin: 20px;
-  align-content: center;
+  height:200px;
+  width:200px;
+}
+
+#chart {
+  height:200px;
+  width:200px;
 }
 
 .pie text {
@@ -64,11 +70,6 @@ img {
 
 .header > h3 {
   margin: 0px;
-}
-
-#chart {
-  height: 200px;
-  width: 200px;
 }
 
 /* Slideshow container */
