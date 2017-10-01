@@ -38,10 +38,10 @@ $(document).ready(function () {
       //Copied code from somewhere to display two colour donut chart
       var text = "";
 
-      var width = 260;
-      var height = 260;
-      var thickness = 40;
-      var duration = 750;
+      var width = 220;
+      var height = 220;
+      var thickness = 30;
+      var duration = 650;
 
       var radius = Math.min(width, height) / 2;
       var color = d3.scaleOrdinal(d3.schemeCategory10);
