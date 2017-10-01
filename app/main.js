@@ -13,9 +13,9 @@ $(document).ready(function () {
 
             var quizBarData = getQuizBarData(data);
             var quizDonutData = getQuizDonutData(quizBarData);
-
-            renderDonutChart(quizDonutData);
-
+    
+            renderDonutChart(quizDonutData, '#quizChart1');
+    
             console.log(quizBarData);
             console.log(quizDonutData);
             console.log(units);
@@ -55,9 +55,17 @@ $(document).ready(function () {
             console.log(quizBarData);
             console.log(quizDonutData);
             console.log(units);
+
+        
+           // renderDonutChart(quizDonutData, '#unitChart1');
+
         });
 
 
+
+
+    
+    
         function getQuizDonutData(data) {
             var correct = 0;
             var wrong = 0;
@@ -135,9 +143,9 @@ $(document).ready(function () {
             arr.push(newUnit);
             return arr;
         }
-
-
-        function renderDonutChart(data) {
+    
+    
+        function renderDonutChart(data, id) {
             var text = "";
 
             var width = 200;
@@ -147,8 +155,8 @@ $(document).ready(function () {
 
             var radius = Math.min(width, height) / 2;
             var color = d3.scaleOrdinal(d3.schemeCategory10);
-
-            var svg = d3.select("#chart")
+    
+            var svg = d3.select(id)
                 .append('svg')
                 .attr('class', 'pie')
                 .attr('width', width)
