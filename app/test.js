@@ -17,7 +17,49 @@ $(document).ready(function () {
 
         console.log(quizBarData);
         console.log(quizDonutData);
+        console.log(units);
     });
+
+    d3.csv("../data/quiz1b.csv", processQuiz, function (err, data) {
+        if (err) throw err;
+        console.log(data);
+
+        var quizBarData = getQuizBarData(data);
+        var quizDonutData = getQuizDonutData(quizBarData);
+
+        console.log(quizBarData);
+        console.log(quizDonutData);
+        console.log(units);
+    });
+
+    d3.csv("../data/quiz2a.csv", processQuiz, function (err, data) {
+        if (err) throw err;
+        console.log(data);
+
+        var quizBarData = getQuizBarData(data);
+        var quizDonutData = getQuizDonutData(quizBarData);
+
+        console.log(quizBarData);
+        console.log(quizDonutData);
+        console.log(units);
+    });
+
+    d3.csv("../data/quiz2b.csv", processQuiz, function (err, data) {
+        if (err) throw err;
+        console.log(data);
+
+        var quizBarData = getQuizBarData(data);
+        var quizDonutData = getQuizDonutData(quizBarData);
+
+        console.log(quizBarData);
+        console.log(quizDonutData);
+        console.log(units);
+    });
+
+
+
+
+
 
     function getQuizDonutData(data) {
             var correct = 0;
@@ -77,7 +119,6 @@ $(document).ready(function () {
     }
 
     function unitExists(unit, arr) {
-        console.log("in unitexist check");
         if (arr.length > 0) {
             for (var i = 0; i < arr.length; i++) {
                 if (arr[i].name.toString() == unit) return true;
