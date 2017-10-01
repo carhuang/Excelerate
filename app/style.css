@@ -43,6 +43,9 @@ img {
 #chart {
   height:200px;
   width:200px;
+  margin-left: -16px;
+  margin-top: -16px;
+  margin-bottom:30px;
 }
 
 .pie text {
@@ -80,7 +83,6 @@ img {
 
 .quizSlide {
     display: none;
-    margin-bottom: 30px;
 }
 
 /* Next & previous buttons */
@@ -120,6 +122,11 @@ img {
 
 .active, .dot:hover {
   background-color: #717171;
+}
+
+.dot-marker {
+  margin-top: 20px;
+  text-align: center;
 }
 
 /* Fading animation */
