@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Excelerate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="app/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/d3/d3.min.js"></script>
+    <script type="text/javascript" src="app/main.js"></script>
+    <script type="text/javascript" src="app/test.js"></script>
+    <script type="text/javascript" src="app/animation.js"></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse bg-inverse" id="navbar">
+    <div class="navbar-brand mb-0">
+      <img src="media/logo2_w.png" height="50" width="250">
+    </div>
+    <div class="navbar-nav" id="left-nav">
+      <a href="#" class="nav-item nav-link" onclick="showPanel('student-panel')">Student</a>
+      <a href="#" class="nav-item nav-link" onclick="showPanel('class-panel')">Class</a>
+    </div>
+    <div class="navbar-nav navbar-right">
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="glyphicon glyphicon-user"></span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <div class="dropdown-item" ><a href="#">Account</a></div>
+          <div class="dropdown-item" ><a href="#">Sign out</a></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container fade" id="class-panel">
+    <div class="row justify-content-center">
+      <div class="col-sm-3" id="quizColumn">
+        <div class="row">
+          <div class="col">
+            <div class="header row">
+              <h3 class="col">Quiz 1</h3>
+            </div>
+            <div class="img-wrapper">
+              <img src="media/donut-chart.png" height="200" width="200">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h3 class="header">Unit Breakdown</h3>
+            <div class="img-wrapper">
+              <img src="media/donut-chart.png" height="200" width="200">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 centered">
+        <h3 class="header">Summary</h3>
+        <div class="img-wrapper">
+          <img src="#" height="540" width="350">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="row">
+          <div class="col">
+            <div class="header row">
+              <h3 class="col">Unit 1</h3>
+            </div>
+            <div class="img-wrapper">
+              <img src="media/donut-chart.png" height="200" width="200">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h3 class="header">Unit Overview</h3>
+            <div class="img-wrapper">
+              <img src="media/donut-chart.png" height="200" width="200">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container fade" id="student-panel">
+    <div class="row justify-content-center">
+      <div class="col-sm-3" id="quizColumn">
+        <div class="row">
+          <div class="col">
+            <div class="header row">
+              <a class="prev col-sm-1" onclick="plusSlides(-1)">&#10094;</a>
+              <h3 class="col-sm-8">Quiz 1</h3>
+              <a class="next col-sm-1" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <div class="img-wrapper slideshow-container text-align:center">
+              <div class="quizSlide" id="quizChart1"></div>
+              <div class="quizSlide">
+                <img src="media/donut-chart.png" height="200" width="200">
+              </div>
+              <div class="dot-marker">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h3 class="header">Unit Breakdown</h3>
+            <div class="img-wrapper">
+              <div id="quizChart2"></div>
+              <!-- <img src="media/donut-chart.png" height="200" width="200"> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 centered">
+        <h3 class="header">Summary</h3>
+        <div class="img-wrapper">
+          <img src="#" height="540" width="350">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="row">
+          <div class="col">
+            <div class="header row">
+              <a class="prev col-sm-1" onclick="plusUnitSlides(-1)">&#10094;</a>
+              <h3 class="col-sm-8">Unit 1</h3>
+              <a class="next col-sm-1" onclick="plusUnitSlides(1)">&#10095;</a>
+            </div>
+            <div class="img-wrapper slideshow-container text-align:center">
+              <div class="unitSlide" id="unitChart1"></div>
+              <div class="unitSlide">
+                <img src="media/donut-chart.png" height="200" width="200">
+              </div>
+              <div class="dot-marker">
+                <span class="unitDot dot" onclick="currentUnitSlide(1)"></span>
+                <span class="unitDot dot" onclick="currentUnitSlide(2)"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h3 class="header">Unit Overview</h3>
+            <div class="img-wrapper">
+              <img src="media/donut-chart.png" height="200" width="200">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
