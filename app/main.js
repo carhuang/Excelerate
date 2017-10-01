@@ -14,8 +14,6 @@ $(document).ready(function () {
             var quizBarData = getQuizBarData(data);
             var quizDonutData = getQuizDonutData(quizBarData);
     
-            renderDonutChart(quizDonutData, '#quizChart1');
-    
             console.log(quizBarData);
             console.log(quizDonutData);
             console.log(units);
@@ -51,19 +49,17 @@ $(document).ready(function () {
 
             var quizBarData = getQuizBarData(data);
             var quizDonutData = getQuizDonutData(quizBarData);
+            var quizUnitDonutData = getQuizDonutData(units, 1);
 
             console.log(quizBarData);
             console.log(quizDonutData);
             console.log(units);
+            console.log(quizUnitDonutData);
 
-        
-           // renderDonutChart(quizDonutData, '#unitChart1');
+            renderDonutChart(quizDonutData, '#quizChart1');
+            renderDonutChart(quizUnitDonutData, '#unitChart1');
 
         });
-
-
-
-
     
     
         function getQuizDonutData(data) {
@@ -143,6 +139,32 @@ $(document).ready(function () {
             arr.push(newUnit);
             return arr;
         }
+
+
+        function getUnitDonutData(data, unit) {
+            if (data.name = unit) {
+
+                var correct = 0;
+                var wrong = 0;
+
+                for (var i = 0; i < data.length; i++) {
+                    correct = correct + data[i].correct;
+                    wrong = wrong + data[i].incorrect;
+                }
+
+                var numQuestions = correct + wrong;
+                var toCorrect = correct / numQuestions;
+                var perCorrect = toCorrect.toFixed(2)
+                var toIncorrect = wrong / numQuestions;
+                var perIncorrect = toIncorrect.toFixed(2)
+                var dataset = [
+                    { state: 'Correct', percent: perCorrect },
+                    { state: 'Incorrect', percent: perIncorrect }
+                ];
+                return dataset;
+            }
+        }
+
     
     
         function renderDonutChart(data, id) {
@@ -223,5 +245,9 @@ $(document).ready(function () {
                 .attr('dy', '.35em')
                 .text(text);
         }
+
+
+
+        
 
     });
