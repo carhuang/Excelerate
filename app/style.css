@@ -112,6 +112,9 @@ a:hover {
 
 .navbar-nav, .navbar-brand {
   padding:10px;
+}
+
+.navbar-nav {
   margin-top:15px;
 }
 
