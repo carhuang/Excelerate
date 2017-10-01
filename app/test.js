@@ -1,17 +1,10 @@
 $(document).ready(function () {
 
-    var unit1Correct = 0;
-    var unit1Wrong = 0;
-    var unit2Correct = 0;
-    var unit2Wrong = 0;
-    var unit3Correct = 0;
-    var unit3Wrong = 0;
-
     // declare object class Unit
-    function Unit(name) {
+    function UnitObj(name, correct, incorrect) {
         this.name = name;
-        this.correct = 0;
-        this.incorrect = 0;
+        this.correct = correct;
+        this.incorrect = incorrect;
     }
     var units = [];
 
@@ -19,50 +12,47 @@ $(document).ready(function () {
         if (err) throw err;
         console.log(data);
         var numQuestions = 0;
-        var u1Correct = 0;//
-        var u1Wrong = 0;//
         var quizUnits = [];
-        var quizDonutData = getQuizDonutData(data);
-        var quizBarData = [];
+        var quizBarData = getQuizBarData(data);
+        var quizDonutData = getQuizDonutData(quizBarData);
 
         function getQuizDonutData(data) {
-            data.forEach(function (quiz) {           //hardcoded for now
-                numQuestions++;
-                console.log(quiz);
-                if (unitExists(quiz.Unit, quizUnits)){
+            var correct = 0;
+            var wrong = 0;
 
+            for (var i = 0; i < data.length; i++) {
+                correct = correct + data[i].correct;
+                wrong = wrong + data[i].incorrect;
+            }
 
-                }
-                if (quiz.Unit == "1") {
-                    if (quiz.Correct == "1") {
-                        unit1Correct++;
-                        u1Correct++;
-                    } else {
-                        unit1Wrong++;
-                        u1Wrong++;
-                    }
-                }
-            });
-            console.log(numQuestions);
-            console.log(u1Correct);
-            console.log(u1Wrong);
-            console.log(unit1Correct);
-            console.log(unit1Wrong);
-            var perCorrect = u1Correct/numQuestions;
-            var perIncorrect = u1Wrong/numQuestions;
+            var perCorrect = correct/numQuestions;
+            var perIncorrect = wrong/numQuestions;
             var dataset = [
                 {state: 'Correct', percent: perCorrect},
                 {state: 'Incorrect', percent: perIncorrect}
             ];
             return dataset;
         }
-        
-        
-        function getQuizBarData() {
-            var dataset = [
-                {unit: }
-            ]
+
+        function getQuizBarData(data) {
+            data.forEach(function (quiz) {
+                numQuestions++;
+                if (unitExists(quiz.Unit, quizUnits)) {
+                    quizUnits = unitUpdate(quiz.Unit, quiz.Correct, quizUnits);
+                    units = unitUpdate(quiz.Unit, quiz.Correct, units);
+                } else {
+                    quizUnits = addUnit(quiz.Unit, quiz.Correct, quizUnits);
+                    if (unitExists(quiz.Unit, units)) {
+                        units = unitUpdate(quiz.Unit, quiz.Correct, units);
+                    } else {
+                        units = addUnit(quiz.Unit, quiz.Correct, units);
+                    }
+                }
+            });
+
+            return quizUnits;
         }
+
     });
 
     function processQuiz(d) {
@@ -71,13 +61,38 @@ $(document).ready(function () {
         }
     }
 
+    function unitUpdate(unit, correctness, arr) {
+        arr.forEach(function (e) {
+            if (e.name == unit) {
+                if (correctness == "1") {
+                    e.correct++;
+                } else {
+                    e.incorrect++;
+                }
+            }
+        });
+        console.log(arr);
+        return arr;
+    }
+
     function unitExists(unit, arr) {
+        console.log("in unitexist check");
         if (arr.length > 0) {
-            arr.forEach(function (e) {
-                if (e.name == unit) return true;
-            });
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i].name.toString() == unit) return true;
+            }
         }
         return false;
+    }
+
+    function addUnit(unit, correctness, arr) {
+        if (correctness == "1") {
+            var newUnit = new UnitObj(unit, 1, 0);
+        } else {
+            var newUnit = new UnitObj(unit, 0, 1);
+        }
+        arr.push(newUnit);
+        return arr;
     }
 
 
