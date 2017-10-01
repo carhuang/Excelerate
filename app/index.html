@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Excelerate</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../bower_components/d3/d3.min.js"></script>
-    <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript" src="test.js"></script>
-    <script type="text/javascript" src="animation.js"></script>
+  <meta charset="UTF-8">
+  <title>Excelerate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../bower_components/d3/d3.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <!-- <script type="text/javascript" src="test.js"></script> -->
+  <script type="text/javascript" src="animation.js"></script>
 </head>
 
 <body>
@@ -47,14 +48,14 @@
               <a class="next col-sm-1" onclick="plusSlides(1)">&#10095;</a>
             </div>
             <div class="img-wrapper slideshow-container">
-             <div class="quizSlide" id="chart"></div>
-             <div class="quizSlide">
-               <img src="../media/donut-chart.png" height="200" width="200">
-             </div>
-             <div style="text-align:center">
-              <span class="dot" onclick="currentSlide(1)"></span>
-              <span class="dot" onclick="currentSlide(2)"></span>
-            </div>
+              <div class="quizSlide" id="chart"></div>
+              <div class="quizSlide">
+                <img src="../media/donut-chart.png" height="200" width="200">
+              </div>
+              <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+              </div>
             </div>
           </div>
         </div>
@@ -71,7 +72,7 @@
       <div class="col-sm-6 centered">
         <h3 class="header">Summary</h3>
         <div class="img-wrapper">
-          <img src="#" height="540" width="350">
+          <div id="courseSumm"></div>
         </div>
       </div>
       <div class="col-sm-3">
