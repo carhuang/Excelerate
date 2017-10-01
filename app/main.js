@@ -13,15 +13,9 @@ $(document).ready(function () {
 
             var quizBarData = getQuizBarData(data);
             var quizDonutData = getQuizDonutData(quizBarData);
-<<<<<<< HEAD
     
             renderDonutChart(quizDonutData, '#quizChart1');
     
-=======
-
-            renderDonutChart(quizDonutData);
-
->>>>>>> 6da36327e8b6a37879d2755931c759569a09f673
             console.log(quizBarData);
             console.log(quizDonutData);
             console.log(units);
@@ -68,13 +62,10 @@ $(document).ready(function () {
         });
 
 
-<<<<<<< HEAD
 
 
     
     
-=======
->>>>>>> 6da36327e8b6a37879d2755931c759569a09f673
         function getQuizDonutData(data) {
             var correct = 0;
             var wrong = 0;
@@ -152,15 +143,9 @@ $(document).ready(function () {
             arr.push(newUnit);
             return arr;
         }
-<<<<<<< HEAD
     
     
         function renderDonutChart(data, id) {
-=======
-
-
-        function renderDonutChart(data) {
->>>>>>> 6da36327e8b6a37879d2755931c759569a09f673
             var text = "";
 
             var width = 260;
@@ -170,13 +155,8 @@ $(document).ready(function () {
 
             var radius = Math.min(width, height) / 2;
             var color = d3.scaleOrdinal(d3.schemeCategory10);
-<<<<<<< HEAD
     
             var svg = d3.select(id)
-=======
-
-            var svg = d3.select("#chart")
->>>>>>> 6da36327e8b6a37879d2755931c759569a09f673
                 .append('svg')
                 .attr('class', 'pie')
                 .attr('width', width)
