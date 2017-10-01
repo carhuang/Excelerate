@@ -40,12 +40,12 @@ img {
   width:200px;
 }
 
-#chart {
+#quizChart1, #unitChart1 {
   height:200px;
   width:200px;
   margin-left: -16px;
   margin-top: -16px;
-  margin-bottom:30px;
+  margin-bottom:36px;
 }
 
 .pie text {

@@ -47,7 +47,7 @@
               <a class="next col-sm-1" onclick="plusSlides(1)">&#10095;</a>
             </div>
             <div class="img-wrapper slideshow-container text-align:center">
-              <div class="quizSlide" id="chart"></div>
+              <div class="quizSlide" id="quizChart1"></div>
               <div class="quizSlide">
                 <img src="../media/donut-chart.png" height="200" width="200">
               </div>
@@ -62,7 +62,7 @@
           <div class="col">
             <h3 class="header">Unit Breakdown</h3>
             <div class="img-wrapper">
-              <div id="quizChart1"></div>
+              <div id="quizChart2"></div>
               <!-- <img src="../media/donut-chart.png" height="200" width="200"> -->
             </div>
           </div>
@@ -77,9 +77,20 @@
       <div class="col-sm-3">
         <div class="row">
           <div class="col">
-            <h3 class="header">Unit 1</h3>
-            <div class="img-wrapper">
-              <div id="unitChart1"></div>
+            <div class="header row">
+              <a class="prev col-sm-1" onclick="plusUnitSlides(-1)">&#10094;</a>
+              <h3 class="col-sm-8">Unit 1</h3>
+              <a class="next col-sm-1" onclick="plusUnitSlides(1)">&#10095;</a>
+            </div>
+            <div class="img-wrapper slideshow-container text-align:center">
+              <div class="unitSlide" id="unitChart1"></div>
+              <div class="unitSlide">
+                <img src="../media/donut-chart.png" height="200" width="200">
+              </div>
+              <div class="dot-marker">
+                <span class="unitDot dot" onclick="currentUnitSlide(1)"></span>
+                <span class="unitDot dot" onclick="currentUnitSlide(2)"></span>
+              </div>
             </div>
           </div>
         </div>
