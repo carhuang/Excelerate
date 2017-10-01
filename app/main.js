@@ -1,48 +1,68 @@
-$(function () {
+$(document).ready(function () {
     console.log("on load");
-    createGraph();
+
+//     var quiz1a = quizChart();
+//
+//     d3.csv("../data/quiz1a.csv", sumCorrect, function(err, data) {
+//     if (err) throw err;
+//     console.log(data);
+//     d3.select('#quiz1a')
+//             .datum(data)
+//             .call(quiz1a);
+// });
+
+
+    // function quizChart() {
+    //     var width = 960,
+    //         height = 500,
+    //         margin = {top:10, right: 10, bottom:10, left:10},
+    //         colour = d3.scaleOrdinal(d3.schemeCategory20c),
+    //         padAngle = 0.015,
+    //         cornerRadius = 3;
+    //
+    // }
+
+    d3.csv("../data/quiz1a.csv", sumCorrect, function(err, data) {
+if (err) throw err;
+console.log(data);
+console.log(lastPerCorrect);
+console.log(lastPerIncorrect);
+});
+var numCorrect = 0;
+var numIncorrect = 0;
+var numRows = 0;
+var lastPerCorrect = 0;
+var lastPerIncorrect = 0;
+function sumCorrect(d) {
+    var correctVal;
+    if (d.Correct == "1") {
+        correctVal = 1;
+        numRows ++;
+   } else {
+    correctVal = 0;
+    numRows ++;
+   }
+    if (correctVal == 1){
+    numCorrect ++;
+    numIncorrect = numRows - numCorrect;}
+    var perCorrect = numCorrect/numRows;
+    var perIncorrect = numIncorrect/numRows;
+    lastPerCorrect = perCorrect;
+    lastPerIncorrect = perIncorrect;
+     return {
+       perCorrect, perIncorrect
+        //Question: d.QuestionCode, Unit: d.Unit, perCorrect, perIncorrect
+        //numCorrect, numIncorrect,
+        //Unit: d.Unit, Correct: d.Correct, correctVal, numCorrect, numIncorrect
+    }
+      var dataset = [
+      {state: 'Correct', percent: lastPerCorrect},
+      {state: 'Incorrect', percent: lastPerIncorrect}
+    ];
+    var width = 360;
+    var height = 360;
+    var radius = Math.min(width, height) / 2;
+
+  };
 });
 
-function createGraph() {
-    var width = 960, height = 500, radius = Math.min(width,height)/2;
-    var color = d3.scale.ordinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-
-    var arc = d3.svg.arc()
-    .outerRadius(radius - 10)
-    .innerRadius(radius - 70);
-
-    var pie = d3.layout.pie()
-    .sort(null)
-    .value(function(d) { return d.population; });
-
-    var svg = d3.select("#quiz1").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .append("q1")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-    d3.csv("../data/quiz1a.csv", type, function (err, data) {
-        if (err) throw err;
-
-        var q1 = svg.selectAll(".arc")
-        .data(pie(data))
-        .enter().append("q1")
-        .attr("class", "arc");
-
-        g.append("path")
-        .attr("d", arc)
-        .style("fill", function(d) { return color(d.data.age); });
-
-        g.append("text")
-        .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-        .attr("dy", ".35em")
-        .text(function(d) { return d.data.age; });
-    })
-
-    function type(d) {
-    d.population = +d.population;
-    return d;
-    }
-
-}
