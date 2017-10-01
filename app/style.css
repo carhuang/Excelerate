@@ -1,8 +1,13 @@
-img {
-  margin:10px;
-  padding:10px;
+.img-wrapper {
+  padding:20px;
+  background-color: #a4a8ad;
 }
 
-div.heading {
-  font-size: 20px;
+.header {
+  background-color: #d2d6db;
+  padding:20px;
+}
+
+.centered {
+  align-content: center;
 }
