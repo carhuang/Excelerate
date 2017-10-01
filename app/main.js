@@ -38,13 +38,13 @@ $(document).ready(function () {
       //Copied code from somewhere to display two colour donut chart
       var text = "";
 
-      var width = 220;
-      var height = 220;
+      var width = 200;
+      var height = 200;
       var thickness = 30;
       var duration = 650;
 
       var radius = Math.min(width, height) / 2;
-      var color = d3.scaleOrdinal(d3.schemeCategory10);
+      var color = d3.scaleOrdinal(d3.schemeCategory20);
 
       var svg = d3.select("#chart")
       .append('svg')
