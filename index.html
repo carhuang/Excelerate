@@ -20,8 +20,8 @@
   <nav class="navbar navbar-inverse bg-inverse" id="navbar">
     <div class="navbar-brand mb-0">EXCELERATE</div>
     <div class="navbar-nav" id="left-nav">
-      <a href="#" class="nav-item nav-link">Student</a>
-      <a href="#" class="nav-item nav-link">Class</a>
+      <a href="#" class="nav-item nav-link" onclick="showPanel('student-panel')">Student</a>
+      <a href="#" class="nav-item nav-link" onclick="showPanel('class-panel')">Class</a>
     </div>
     <div class="navbar-nav navbar-right">
       <div class="nav-item dropdown">
@@ -36,7 +36,58 @@
     </div>
   </nav>
 
-  <div class="container">
+  <div class="container" id="class-panel">
+    <div class="row justify-content-center">
+      <div class="col-sm-3" id="quizColumn">
+        <div class="row">
+          <div class="col">
+            <div class="header row">
+              <h3 class="col">Quiz 1</h3>
+            </div>
+            <div class="img-wrapper">
+              <img src="media/donut-chart.png" height="200" width="200">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h3 class="header">Unit Breakdown</h3>
+            <div class="img-wrapper">
+              <img src="media/donut-chart.png" height="200" width="200">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 centered">
+        <h3 class="header">Summary</h3>
+        <div class="img-wrapper">
+          <img src="#" height="540" width="350">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="row">
+          <div class="col">
+            <div class="header row">
+              <h3 class="col">Unit 1</h3>
+            </div>
+            <div class="img-wrapper">
+              <img src="media/donut-chart.png" height="200" width="200">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h3 class="header">Unit Overview</h3>
+            <div class="img-wrapper">
+              <img src="media/donut-chart.png" height="200" width="200">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="student-panel">
     <div class="row justify-content-center">
       <div class="col-sm-3" id="quizColumn">
         <div class="row">

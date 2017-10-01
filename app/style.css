@@ -8,6 +8,14 @@ body {
   min-width: 1200px;
 }
 
+#class-panel {
+  display:none;
+}
+
+#student-panel {
+  display:block;
+}
+
 img {
   display: block;
   margin: auto;
