@@ -11,12 +11,15 @@ $(document).ready(function () {
     d3.csv("../data/quiz1a.csv", processQuiz, function (err, data) {
         if (err) throw err;
         console.log(data);
-        var numQuestions = 0;
-        var quizUnits = [];
+
         var quizBarData = getQuizBarData(data);
         var quizDonutData = getQuizDonutData(quizBarData);
 
-        function getQuizDonutData(data) {
+        console.log(quizBarData);
+        console.log(quizDonutData);
+    });
+
+    function getQuizDonutData(data) {
             var correct = 0;
             var wrong = 0;
 
@@ -25,6 +28,7 @@ $(document).ready(function () {
                 wrong = wrong + data[i].incorrect;
             }
 
+            var numQuestions = correct + wrong;
             var perCorrect = correct/numQuestions;
             var perIncorrect = wrong/numQuestions;
             var dataset = [
@@ -35,8 +39,8 @@ $(document).ready(function () {
         }
 
         function getQuizBarData(data) {
+            var quizUnits = [];
             data.forEach(function (quiz) {
-                numQuestions++;
                 if (unitExists(quiz.Unit, quizUnits)) {
                     quizUnits = unitUpdate(quiz.Unit, quiz.Correct, quizUnits);
                     units = unitUpdate(quiz.Unit, quiz.Correct, units);
@@ -52,8 +56,6 @@ $(document).ready(function () {
 
             return quizUnits;
         }
-
-    });
 
     function processQuiz(d) {
         return {
@@ -71,7 +73,6 @@ $(document).ready(function () {
                 }
             }
         });
-        console.log(arr);
         return arr;
     }
 
