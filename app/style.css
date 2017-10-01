@@ -8,6 +8,14 @@ body {
   min-width: 1200px;
 }
 
+#class-panel {
+  display:none;
+}
+
+#student-panel {
+  display:none;
+}
+
 img {
   display: block;
   margin: auto;
@@ -104,6 +112,9 @@ a:hover {
 
 .navbar-nav, .navbar-brand {
   padding:10px;
+}
+
+.navbar-nav {
   margin-top:15px;
 }
 
@@ -170,7 +181,8 @@ a:hover {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
   animation-name: fade;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 @-webkit-keyframes fade {

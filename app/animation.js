@@ -3,6 +3,7 @@ var slideIndex = 1;
 $(document).ready(function () {
   console.log("test");
   showSlides(slideIndex);
+  showPanel("student-panel")
 });
 
 function plusSlides(n) {
@@ -60,4 +61,22 @@ function showUnitSlides(n) {
   }
   slides[unitSlideIndex-1].style.display = "block";
   dots[unitSlideIndex-1].className += " active";
+}
+
+// =======================================
+
+function showPanel(panel) {
+  var classPanel = document.getElementById("class-panel");
+  var studentPanel = document.getElementById("student-panel");
+
+  classPanel.style.display = "none";
+  studentPanel.style.display = "none";
+
+  if(panel == "class-panel")
+  {
+    classPanel.style.display = "block";
+  }
+  else {
+    studentPanel.style.display = "block";
+  }
 }
