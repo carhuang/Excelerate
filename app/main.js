@@ -6,67 +6,67 @@ $(document).ready(function () {
             this.incorrect = incorrect;
         }
         var units = [];
-    
+
         d3.csv("../data/quiz1a.csv", processQuiz, function (err, data) {
             if (err) throw err;
             console.log(data);
-    
+
             var quizBarData = getQuizBarData(data);
             var quizDonutData = getQuizDonutData(quizBarData);
-    
+
             renderDonutChart(quizDonutData);
-    
+
             console.log(quizBarData);
             console.log(quizDonutData);
             console.log(units);
         });
-    
+
         d3.csv("../data/quiz1b.csv", processQuiz, function (err, data) {
             if (err) throw err;
             console.log(data);
-    
+
             var quizBarData = getQuizBarData(data);
             var quizDonutData = getQuizDonutData(quizBarData);
-    
+
             console.log(quizBarData);
             console.log(quizDonutData);
             console.log(units);
         });
-    
+
         d3.csv("../data/quiz2a.csv", processQuiz, function (err, data) {
             if (err) throw err;
             console.log(data);
-    
+
             var quizBarData = getQuizBarData(data);
             var quizDonutData = getQuizDonutData(quizBarData);
-    
+
             console.log(quizBarData);
             console.log(quizDonutData);
             console.log(units);
         });
-    
+
         d3.csv("../data/quiz2b.csv", processQuiz, function (err, data) {
             if (err) throw err;
             console.log(data);
-    
+
             var quizBarData = getQuizBarData(data);
             var quizDonutData = getQuizDonutData(quizBarData);
-    
+
             console.log(quizBarData);
             console.log(quizDonutData);
             console.log(units);
         });
-    
-    
+
+
         function getQuizDonutData(data) {
             var correct = 0;
             var wrong = 0;
-    
+
             for (var i = 0; i < data.length; i++) {
                 correct = correct + data[i].correct;
                 wrong = wrong + data[i].incorrect;
             }
-    
+
             var numQuestions = correct + wrong;
             var toCorrect = correct / numQuestions;
             var perCorrect = toCorrect.toFixed(2)
@@ -78,7 +78,7 @@ $(document).ready(function () {
             ];
             return dataset;
         }
-    
+
         function getQuizBarData(data) {
             var quizUnits = [];
             data.forEach(function (quiz) {
@@ -94,16 +94,16 @@ $(document).ready(function () {
                     }
                 }
             });
-    
+
             return quizUnits;
         }
-    
+
         function processQuiz(d) {
             return {
                 Unit: d.Unit, Correct: d.Correct
             }
         }
-    
+
         function unitUpdate(unit, correctness, arr) {
             arr.forEach(function (e) {
                 if (e.name == unit) {
@@ -116,7 +116,7 @@ $(document).ready(function () {
             });
             return arr;
         }
-    
+
         function unitExists(unit, arr) {
             if (arr.length > 0) {
                 for (var i = 0; i < arr.length; i++) {
@@ -125,7 +125,7 @@ $(document).ready(function () {
             }
             return false;
         }
-    
+
         function addUnit(unit, correctness, arr) {
             if (correctness == "1") {
                 var newUnit = new UnitObj(unit, 1, 0);
@@ -135,36 +135,36 @@ $(document).ready(function () {
             arr.push(newUnit);
             return arr;
         }
-    
-    
+
+
         function renderDonutChart(data) {
             var text = "";
-    
+
             var width = 260;
             var height = 260;
             var thickness = 40;
             var duration = 750;
-    
+
             var radius = Math.min(width, height) / 2;
             var color = d3.scaleOrdinal(d3.schemeCategory10);
-    
+
             var svg = d3.select("#chart")
                 .append('svg')
                 .attr('class', 'pie')
                 .attr('width', width)
                 .attr('height', height);
-    
+
             var g = svg.append('g')
                 .attr('transform', 'translate(' + (width / 2) + ',' + (height / 2) + ')');
-    
+
             var arc = d3.arc()
                 .innerRadius(radius - thickness)
                 .outerRadius(radius);
-    
+
             var pie = d3.pie()
                 .value(function (d) { return d.percent; })
                 .sort(null);
-    
+
             var path = g.selectAll('path')
                 .data(pie(data))
                 .enter()
@@ -175,13 +175,13 @@ $(document).ready(function () {
                         .style("fill", "black")
                         .append("g")
                         .attr("class", "text-group");
-    
+
                     g.append("text")
                         .attr("class", "state-text")
                         .text(`${d.data.state}`)
                         .attr('text-anchor', 'middle')
                         .attr('dy', '-1.2em');
-    
+
                     g.append("text")
                         .attr("class", "percent-text")
                         .text(`${d.data.percent}`)
@@ -208,13 +208,12 @@ $(document).ready(function () {
                         .style("fill", color(this._current));
                 })
                 .each(function (d, i) { this._current = i; });
-    
-    
+
+
             g.append('text')
                 .attr('text-anchor', 'middle')
                 .attr('dy', '.35em')
                 .text(text);
         }
-    
-    });
 
+    });
