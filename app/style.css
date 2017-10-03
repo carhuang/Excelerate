@@ -1,6 +1,10 @@
 body {
     font-family: 'Montserrat', sans-serif;
     min-width: 1200px;
+    background-image: url("../media/bkgd.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
 }
 
 .container {
@@ -23,13 +27,13 @@ img {
 
 .img-wrapper {
     padding: 30px;
-    background-color: rgba(210, 214, 219, 0.65);
+    background-color: rgba(210, 214, 219, 0.20);
     margin: 10px;
     margin-top: 0px;
 }
 
 .header {
-    background-color: rgba(164, 168, 173, 0.65);
+    background-color: rgba(164, 168, 173, 0.25);
     padding: 16px;
     margin: 10px;
     margin-top: 20px;
@@ -51,8 +55,9 @@ a:hover {
 }
 
 .navbar {
-  height: 70px;
+  height: 50px;
   align-items: center;
+  background-color: rgba(00,00,00,0.6);
 }
 
 .nav-item:active, a:focus {
@@ -80,8 +85,8 @@ a:hover {
 
 .pie {
   margin: 20px;
-  height:200px;
-  width:200px;
+  height:auto;
+  width:auto;
 }
 
 #quizChart1, #unitChart1 {
@@ -91,6 +96,15 @@ a:hover {
   margin-top: -16px;
   margin-bottom:36px;
 }
+
+#courseSumm{
+    height:400px;
+    width:400px;
+    margin-left: -16px;
+    margin-top: -16px;
+    margin-bottom:36px;
+}
+
 
 .pie text {
     font-family: 'Montserrat', sans-serif;
@@ -115,7 +129,7 @@ a:hover {
 }
 
 .navbar-nav {
-  margin-top:15px;
+  margin-top:5px;
 }
 
 .header > h3 {

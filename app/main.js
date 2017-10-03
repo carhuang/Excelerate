@@ -275,8 +275,8 @@ $(document).ready(function () {
         function renderDonutChartCourse(data, id, total) {
             var text = "";
 
-            var width = 260;
-            var height = 260;
+            var width = 400;
+            var height = 400;
             var thickness = 40;
             var duration = 750;
 
@@ -355,103 +355,6 @@ $(document).ready(function () {
                 .text(total);
             }
 
-
-            function renderQuizBarGraph(data, div) {
-                console.log("in render bar");
-                var margin = {top: 20, right: 20, bottom: 20, left: 20};
-                var width = 350 - margin.left - margin.right,
-                    height = 260 - margin.top - margin.bottom;
-                var svg = d3.select(div)
-                    .append("svg")
-                    .attr("width", width + margin.left + margin.right)
-                    .attr("height", height + margin.top + margin.bottom)
-                    .append("g")
-                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-                var stack = d3.stack()
-                    .keys(["correct", "incorrect"])
-                    .order(d3.stackOrderNone)
-                    .offset(d3.stackOffsetNone);
-                var series = stack(data);
-                // Set x, y and colors
-                var x = d3.scaleBand()
-                    .domain(data.map(function (d) {
-                        return "Unit " + d.name;
-                    }))
-                    .rangeRound([0, width])
-                    .padding(0.1);
-                var y = d3.scaleLinear()
-                    .domain([d3.min(series, stackMin(series)), d3.max(series, stackMax(series))])
-                    .range([height, 0]);
-                var colors = ["#5C9932", "#EA001F"];
-                var yAxis = d3.svg.axis()
-                    .axisLeft(y)
-                    .ticks(5)
-                    .tickSize(-width, 0, 0)
-                    .tickFormat(function (d) {
-                        return d
-                    });
-                var xAxis = d3.svg.axis()
-                    .axisBottom(x)
-                    .tickFormat(function (d) {
-                        return d
-                    });
-                svg.append("g")
-                    .attr("class", "y axis")
-                    .call(yAxis);
-                svg.append("g")
-                    .attr("class", "x axis")
-                    .attr("transform", "translate(0," + height + ")")
-                    .call(xAxis);
-                function stackMin(serie) {
-                    return d3.min(serie, function (d) {
-                        return d[0];
-                    });
-                }
-                function stackMax(serie) {
-                    return d3.max(serie, function (d) {
-                        return d[1];
-                    });
-                }
-        // Create groups for each series, rects for each segment
-                var groups = svg.selectAll("g.cost")
-                    .data(dataset)
-                    .enter().append("g")
-                    .attr("class", "cost")
-                    .style("fill", function (d, i) {
-                        return colors[i];
-                    });
-                var rect = groups.selectAll("rect")
-                    .data(function (d) {
-                        return d;
-                    })
-                    .enter()
-                    .append("rect")
-                    .attr("x", function (d) {
-                        return x(d.x);
-                    })
-                    .attr("y", function (d) {
-                        return y(d.y0 + d.y);
-                    })
-                    .attr("height", function (d) {
-                        return y(d.y0) - y(d.y0 + d.y);
-                    })
-                    .attr("width", x.bandwidth());
-        // Prep the tooltip bits, initial display is hidden
-                var tooltip = svg.append("g")
-                    .attr("class", "tooltip");
-                    // .style("display", "none");
-                tooltip.append("rect")
-                    .attr("width", 30)
-                    .attr("height", 20)
-                    .attr("fill", "white")
-                    .style("opacity", 0.5);
-                tooltip.append("text")
-                    .attr("x", 15)
-                    .attr("dy", "1.2em")
-                    .style("text-anchor", "middle")
-                    .attr("font-size", "12px")
-                    .attr("font-weight", "bold");
-            }
             
 
     });
