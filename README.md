@@ -1,9 +1,9 @@
 # Excelerate
-Built by Jillian Kong, Quinn Hou, and Carly Huang,
+Built by Jillian Kong, Quinn Hou, and Carly Huang
 
 ## Inspiration
-We identified a huge gaps in learning progress and test assessment, where students too often receive an overall course mark, look at it, and leave it behind. 
-What's lacking is a quick and accessible breakdown on learning progress, whether it be a progress tracker for individual students or class data for instructors. 
+We identified a huge gap in learning progress and test assessment, where students too often receive an overall course mark, look at it, and leave it behind. 
+What is lacking is a quick and accessible breakdown on learning progress, whether it be a progress tracker for individual students or class data for instructors. 
 
 ## What it does
 Excelerate analyzes scattered individual assessment results into meaningful representations on a visual dashboard. 
@@ -15,7 +15,7 @@ Excelerate's dashboard includes the following features:
 * helps instructors tailor teaching materials to improve weaker units 
 
 ## How we built it
-* Input: Read quiz results from .csv files. Quiz results included questions, associated units, student answer, and correct answer)
+* Input: Read quiz results from .csv files. Quiz results included questions, associated units, student answer, and correct answer
 * Data Analysis: Parsed the .csv files with javascript and analyzed the data to output uniform datasets objects.
 * Output: Used d3.js to render analyzed data into interactive donut charts, bar graphs, aster charts, and line graphs, with detailed descriptions and labels. 
 
